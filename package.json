@@ -1,0 +1,35 @@
+{
+  "name": "sparkplug",
+  "version": "1.0.0",
+  "description": "Re-usable laravel builds",
+  "private": true,
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/psgganesh/spark.git"
+  },
+  "keywords": [
+    "Laravel",
+    "Grunt",
+    "Bower",
+    "provolution/lemp-box"
+  ],
+  "author": "psgganesh@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/psgganesh/spark/issues"
+  },
+  "homepage": "https://gitlab.com/psgganesh/spark#README",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-phpunit": "^0.3.6"
+  }
+}
