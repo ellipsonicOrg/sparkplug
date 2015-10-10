@@ -19,16 +19,20 @@ module.exports = function(grunt) {
                 files: [
 
                     // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/*.min.css'], dest: 'public/css/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/css/*.min.css'], dest: 'public/backend/css/bootstrap/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/*.min.css'], dest: 'public/backend/css/', filter: 'isFile'},
 
                     // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/skins/_all-skins.min.css'], dest: 'public/css/skins/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/skins/_all-skins.min.css'], dest: 'public/backend/css/skins/', filter: 'isFile'},
 
                     // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/img/*'], dest: 'public/img/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/img/*'], dest: 'public/backend/img/', filter: 'isFile'},
 
                     // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/*.min.js'], dest: 'public/js/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/app.min.js'], dest: 'public/backend/js/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/demo.js'], dest: 'public/backend/js/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/js/*.min.js'], dest: 'public/backend/js/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/jQuery/*.min.js'], dest: 'public/backend/plugins/jQuery/', filter: 'isFile'},
 
                 ],
             },
@@ -102,5 +106,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Task definition
-    grunt.registerTask('default', ["less","copy"]);
+    grunt.registerTask('default', ["less"]);
 };

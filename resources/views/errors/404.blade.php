@@ -186,7 +186,7 @@
 	</div>
 	<div class="buttons-container">
 		<a class="border-button" href="/">Go To Homepage</a>
-		<a class="border-button" href="mailto:psgganesh@gmail.co" target="_blank">Report A Problem</a>
+		<a class="border-button" href="mailto:{{$support_email_id}}" target="_blank">Report A Problem</a>
 	</div>
 </div>
 

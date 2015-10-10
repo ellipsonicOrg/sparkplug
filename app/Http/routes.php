@@ -7,14 +7,17 @@ Route::get('/home', 'ActionController@index');
 
 Route::get('/superadmin', 'SuperadminController@index');
 
-Route::get('/login',function() {
+// Authentication routes
 
-    Auth::loginUsingId(1);
+Route::get('auth/login', 'Auth\AuthController@getLogin');
 
-});
+Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-Route::get('/logout',function() {
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-    Auth::logout();
 
-});
+// Registration routes
+
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+
+Route::post('auth/register', 'Auth\AuthController@postRegister');

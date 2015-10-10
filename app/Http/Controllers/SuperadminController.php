@@ -11,7 +11,9 @@ class SuperadminController extends Controller {
 	public function __construct()
 	{
 		if(Gate::denies('access_superadmin_panel')) {
-            abort('403','Not authorized');
+
+            abort('403','User has no superadmin access');
+
 		}
 	}
 
@@ -22,7 +24,7 @@ class SuperadminController extends Controller {
 	 */
 	public function index()
 	{
-        return view('superadmin');
+		return view('backend.superadmin.home');
 	}
 
 }

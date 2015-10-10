@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share('support_email_id', env('SUPPORT_EMAIL_ID'));
+        view()->share('product_name', env('PRODUCT_NAME'));
     }
 
     /**
