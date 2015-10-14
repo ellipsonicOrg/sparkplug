@@ -32,11 +32,39 @@
                     </div>
                 </form>
 
-                <div class="social-auth-links text-center">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-                    <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-                </div><!-- /.social-auth-links -->
+                @can('global-enable-social-login')
+
+                    <div class="social-auth-links text-center">
+
+                        <p>- OR -</p>
+
+                        @can('global-login-using-facebook')
+                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+                        @endCan
+
+                        @can('global-login-using-twitter')
+                            <a href="#" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> Sign in using Twitter</a>
+                        @endCan
+
+                        @can('global-login-using-linkedin')
+                            <a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> Sign in using Linkedin</a>
+                        @endCan
+
+                        @can('global-login-using-google-plus')
+                            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+                        @endCan
+
+                        @can('global-login-using-github')
+                            <a href="#" class="btn btn-block btn-social btn-github btn-flat"><i class="fa fa-github"></i> Sign in using Github</a>
+                        @endCan
+
+                        @can('global-login-using-bitbucket')
+                            <a href="#" class="btn btn-block btn-social btn-bitbucket btn-flat"><i class="fa fa-bitbucket"></i> Sign in using Bitbucket</a>
+                        @endCan
+
+                    </div><!-- /.social-auth-links -->
+
+                @endCan
 
                 <a href="#">I forgot my password</a><br>
                 <a href="/auth/register" class="text-center">Register a new membership</a>

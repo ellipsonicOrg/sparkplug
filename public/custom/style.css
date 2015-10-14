@@ -8,6 +8,11 @@
     color: #FFFFFF;
 }
 
+.login-box, .register-box {
+    width: 360px;
+    margin: 2% auto;
+}
+
 .main-header .logo .logo-lg {
     font-family: "Lato", "Serif" !important;
     font-weight: 600 !important;
