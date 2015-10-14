@@ -1,0 +1,14 @@
+/* Any custom styles go here */
+
+.login-page, .register-page {
+    background: #222d32;
+}
+
+.login-logo a, .register-logo a {
+    color: #FFFFFF;
+}
+
+.main-header .logo .logo-lg {
+    font-family: "Lato", "Serif" !important;
+    font-weight: 600 !important;
+}

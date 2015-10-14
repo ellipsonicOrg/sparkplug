@@ -23,4 +23,10 @@ class WelcomeController extends Controller {
 
 	}
 
+	// Abstract method to redirect after login
+	// The logic for where to go after login is
+	// implemented at RedirectIfAuthenticated Class
+	// handle method
+	public function home() {}
+
 }

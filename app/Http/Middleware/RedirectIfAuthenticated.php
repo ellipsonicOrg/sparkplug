@@ -2,8 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Gate;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use App\RoleUser;
+
 
 class RedirectIfAuthenticated
 {
@@ -17,8 +20,7 @@ class RedirectIfAuthenticated
     /**
      * Create a new filter instance.
      *
-     * @param  Guard  $auth
-     * @return void
+     * @param  Guard $auth
      */
     public function __construct(Guard $auth)
     {
@@ -35,9 +37,22 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/home');
+
+            $role_user = new RoleUser();
+
+            if($role_user::getPrimaryRole($this->auth)) {
+
+                return redirect($role_user::getPrimaryRole($this->auth));
+
+            } else {
+
+                abort('401','User is unauthorized');
+
+            }
+
         }
 
         return $next($request);
     }
+
 }

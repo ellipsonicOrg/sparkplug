@@ -20,7 +20,7 @@
         Confirm Password
         <input type="password" name="password_confirmation">
     </div>
-
+    <input type="text" class="form-control" id="companyname" name="companyname" value="{{ old('companyname') }}" >
     <div>
         <button type="submit">Register</button>
     </div>

@@ -22,6 +22,9 @@ module.exports = function(grunt) {
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/css/*.min.css'], dest: 'public/backend/css/bootstrap/', filter: 'isFile'},
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/*.min.css'], dest: 'public/backend/css/', filter: 'isFile'},
 
+                    // Get the fonts
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/fonts/*'], dest: 'public/backend/css/fonts/', filter: 'isFile'},
+
                     // Includes files within path and flattens results to a single level
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/skins/_all-skins.min.css'], dest: 'public/backend/css/skins/', filter: 'isFile'},
 
@@ -32,7 +35,13 @@ module.exports = function(grunt) {
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/app.min.js'], dest: 'public/backend/js/', filter: 'isFile'},
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/demo.js'], dest: 'public/backend/js/', filter: 'isFile'},
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/js/*.min.js'], dest: 'public/backend/js/', filter: 'isFile'},
+
+                    // Extra plugins
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/jQuery/*.min.js'], dest: 'public/backend/plugins/jQuery/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/chartjs/*.min.js'], dest: 'public/backend/plugins/chartjs/', filter: 'isFile'},
+                    <!-- iCheck -->
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/iCheck/*.min.js'], dest: 'public/backend/plugins/iCheck/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/iCheck/square/blue*'], dest: 'public/backend/css/plugins/iCheck/square/', filter: 'isFile'},
 
                 ],
             },

@@ -12,7 +12,7 @@ class SuperadminController extends Controller {
 	{
 		if(Gate::denies('access_superadmin_panel')) {
 
-            abort('403','User has no superadmin access');
+            abort('403','User has no privilages to access dashboard');
 
 		}
 	}
@@ -24,7 +24,9 @@ class SuperadminController extends Controller {
 	 */
 	public function index()
 	{
-		return view('backend.superadmin.home');
+        $data['page_header'] = "Activity";
+        $data['page_description'] = "Graphs, charts and logs of your organization";
+		return view('backend.superadmin.pages.dashboard',$data);
 	}
 
 }
