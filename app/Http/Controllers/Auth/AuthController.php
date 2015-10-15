@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Company;
 use App\RoleUser;
 use App\User;
-use App\UserCompany;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -68,13 +66,7 @@ class AuthController extends Controller
 
         $user_id = $user->id;
 
-        $company = Company::create(['name' => $data['companyname']]);
-
-        $company_id = $company->id;
-
         RoleUser::create(['role_id'=>2,'user_id'=>$user_id]);
-
-        $flag = UserCompany::create(['company_id'=>$company_id,'role_id'=>2,'user_id'=>$user_id]);
 
         return $user;
     }

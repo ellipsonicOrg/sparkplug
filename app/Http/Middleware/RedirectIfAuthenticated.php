@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Gate;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-use App\RoleUser;
+use App\HasRoles;
 
 
 class RedirectIfAuthenticated
@@ -38,11 +38,13 @@ class RedirectIfAuthenticated
     {
         if ($this->auth->check()) {
 
-            $role_user = new RoleUser();
+            if($this->auth->user()->roles->contains('name', 'superadmin')) {
 
-            if($role_user::getPrimaryRole($this->auth)) {
+                return redirect('superadmin/home');
 
-                return redirect($role_user::getPrimaryRole($this->auth));
+            } else if($this->auth->user()->roles[0]['name']) {
+
+                return redirect($this->auth->user()->roles[0]['name'].'/home');
 
             } else {
 

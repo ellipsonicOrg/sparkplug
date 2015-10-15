@@ -1,17 +1,28 @@
 <?php
 
 
+// Public / Guest routes
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('/home', 'WelcomeController@home');
 
-Route::get('/superadmin', 'SuperadminController@index');
 
-Route::get('/admin', 'AdminController@index');
+// Superadmin routes
+
+Route::get('/superadmin/home', 'SuperadminController@index');
+
+Route::get('/superadmin/ecosystem', 'SuperadminController@ecosystem');
+
+
+// Admin routes
+
+Route::get('/admin/home', 'AdminController@index');
 
 Route::get('/users', 'UsersController@index');
 
 Route::get('/users/getSavedUsers', 'UsersController@listUsers');
+
 
 // Authentication routes
 

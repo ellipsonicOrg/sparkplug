@@ -5,9 +5,8 @@
 
     @can('access_superadmin_panel')
 
-        <li class="{{ Request::segment(1) == 'superadmin' ? 'active' : '' }}"><a href="/superadmin"><i class='fa fa-tachometer'></i><span>Activity</span></a></li>
-        <li class="{{ Request::segment(1) == 'users' ? 'active' : '' }}"><a href="/users"><i class='fa fa-briefcase'></i><span>Users</span></a></li>
-        <li class="{{ Request::segment(1) == 'companies' ? 'active' : '' }}"><a href="/companies"><i class='fa fa-building'></i><span>Companies</span></a></li>
+        <li class="{{ Request::segment(2) == 'home' ? 'active' : '' }}"><a href="/superadmin/home"><i class='fa fa-tachometer'></i><span>Activity</span></a></li>
+        <li class="{{ Request::segment(2) == 'ecosystem' ? 'active' : '' }}"><a href="/superadmin/ecosystem"><i class='fa fa-globe'></i><span>Ecosystem</span></a></li>
 
     @endCan
     <!--

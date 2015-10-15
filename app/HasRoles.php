@@ -32,5 +32,6 @@ trait HasRoles
     {
         return $this->hasRole($permission->roles);
     }
+    
 
 }

@@ -32,39 +32,39 @@
                     </div>
                 </form>
 
-                @can('global-enable-social-login')
+                <?php if (env('SOCIAL_LOGIN')) { ?>
 
                     <div class="social-auth-links text-center">
 
                         <p>- OR -</p>
 
-                        @can('global-login-using-facebook')
+                        <?php if (env('FACEBOOK_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-                        @endCan
+                        <?php } ?>
 
-                        @can('global-login-using-twitter')
+                        <?php if (env('TWITTER_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> Sign in using Twitter</a>
-                        @endCan
+                        <?php } ?>
 
-                        @can('global-login-using-linkedin')
+                        <?php if (env('LINKEDIN_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> Sign in using Linkedin</a>
-                        @endCan
+                        <?php } ?>
 
-                        @can('global-login-using-google-plus')
+                        <?php if (env('GOOGLE_PLUS_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-                        @endCan
+                        <?php } ?>
 
-                        @can('global-login-using-github')
+                        <?php if (env('GITHUB_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-github btn-flat"><i class="fa fa-github"></i> Sign in using Github</a>
-                        @endCan
+                        <?php } ?>
 
-                        @can('global-login-using-bitbucket')
+                        <?php if (env('BITBUCKET_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-bitbucket btn-flat"><i class="fa fa-bitbucket"></i> Sign in using Bitbucket</a>
-                        @endCan
+                        <?php } ?>
 
                     </div><!-- /.social-auth-links -->
 
-                @endCan
+                <?php } ?>
 
                 <a href="#">I forgot my password</a><br>
                 <a href="/auth/register" class="text-center">Register a new membership</a>

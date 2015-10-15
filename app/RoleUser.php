@@ -23,20 +23,4 @@ class RoleUser extends Model
      */
     protected $fillable = ['role_id', 'user_id'];
 
-    /**
-     * Fetch the collection of site permissions.
-     *
-     * @param $auth
-     * @return Collection
-     */
-    protected function getPrimaryRole($auth)
-    {
-        return RoleUser::select('name as role')
-            ->join('roles', 'roles.id', '=', 'role_user.role_id')
-            ->where('role_user.user_id','=',$auth->user()->getAuthIdentifier())
-            ->first()->role;
-    }
-
-
-
 }

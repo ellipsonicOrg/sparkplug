@@ -4,12 +4,7 @@
         <span class="sr-only" >Toggle navigation</span>
     </a>
 
-    @if(Request::segment(1) == 'users')
-    <ul class="nav navbar-nav">
-        <li class="{{ Request::segment(1) == 'roles' ? 'active' : '' }}"><a href="/roles"><i class='fa fa-circle-thin'></i><span> Roles</span></a></li>
-        <li class="{{ Request::segment(1) == 'permissions' ? 'active' : '' }}"><a href="/permissions"><i class='fa fa-key'></i><span> Permissions</span></a></li>
-    </ul>
-    @endif
+
 
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">

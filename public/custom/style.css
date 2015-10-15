@@ -17,3 +17,8 @@
     font-family: "Lato", "Serif" !important;
     font-weight: 600 !important;
 }
+
+.skin-black .main-header>.navbar .nav>li>a:hover, .skin-black .main-header>.navbar .nav>.active>a {
+    background: #222D32;
+    color: #FFF;
+}
