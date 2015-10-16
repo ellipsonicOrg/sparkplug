@@ -12,11 +12,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
+    "resources/assets/bower",
     "test",
     "tests"
   ],
   "dependencies": {
-    "AdminLTE": "admin-lte#~2.3.0"
+    "AdminLTE": "admin-lte#~2.3.0",
+    "angular-ui-grid": "~3.0.7",
+	"angular-touch": "~1.4.7"
   }
 }

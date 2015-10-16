@@ -74,8 +74,89 @@
         </div>
         <!-- /.row -->
 
+        <div class="row" ng-app="ecoSystemApp">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div ng-controller="MainCtrl">
+                    <div id="ecoSystemGrid" ui-grid-exporter ui-grid-pagination ui-grid="gridOptions" class="grid"></div>
+                </div>
+            </div>
+        </div>
+
+
+
     </section>
     <!-- /.content -->
 
 @stop
 
+@section('extra_scripts')
+<script>
+
+    /*
+     * Module: ecoSystemApp
+     * Description: Angular JS Module to list all user, roles ecosystem for superadmin
+     * Developer: Shankar
+     * Version: 0.0.1
+     * Dated: 16-Oct-2015
+     *
+     * Dependencies
+     * -----------------------------------------------------
+     * UI Grid:  http://ui-grid.info/
+     */
+
+
+    var app = angular.module('ecoSystemApp', ['ngTouch', 'ui.grid','ui.grid.pagination', 'ui.grid.autoResize', 'ui.grid.exporter', 'ui.grid.selection']);
+
+    app.config(['$interpolateProvider', function ( $interpolateProvider) {
+
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+
+    }]);
+
+    app.controller('MainCtrl', ['$scope','$http', function ($scope, $http) {
+
+        $scope.gridOptions = {
+            enableFiltering: false,
+            exporterMenuCsv: false,
+            enableGridMenu: true,
+            enableHorizontalScrollbar: 0,
+            enableVerticalScrollbar: 2,
+            paginationPageSizes: [25, 50, 75],
+            paginationPageSize: 25,
+            columnDefs: [
+                { name: 'name' },
+                { name: 'gender' },
+                { name: 'company' }
+            ]
+        };
+
+        $scope.highlightFilteredHeader = function( row, rowRenderIndex, col, colRenderIndex ) {
+            if( col.filters[0].term ){
+                return 'header-filtered';
+            } else {
+                return '';
+            }
+        };
+
+        $http.get('/getUserRoleData')
+        .success(function (data) {
+            $scope.gridOptions.data = data;
+        });
+
+        /*
+
+         $http.get('http://ui-grid.info/data/100.json')
+         .success(function (data) {
+         $scope.gridOptions.data = data;
+         });
+
+         */
+
+
+    }]);
+
+</script>
+
+
+@stop

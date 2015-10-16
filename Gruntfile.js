@@ -1,8 +1,9 @@
 //Gruntfile
 
-var defaultBowerDir = 'resources/assets/bower/';
-var themeName = 'AdminLTE';
-var completeThemeDir = defaultBowerDir + themeName;
+var defaultBowerDir     = 'resources/assets/bower/';
+var sparkPlugDir        = 'resources/assets/sparkplug/';
+var themeName           = 'AdminLTE';
+var completeThemeDir    = defaultBowerDir + themeName;
 
 module.exports = function(grunt) {
 
@@ -18,28 +19,27 @@ module.exports = function(grunt) {
             main: {
                 files: [
 
-                    // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/css/*.min.css'], dest: 'public/backend/css/bootstrap/', filter: 'isFile'},
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/*.min.css'], dest: 'public/backend/css/', filter: 'isFile'},
+                    // CSS
+                    {expand: true, flatten:true, src: [''+sparkPlugDir+'/css/*.css'], dest: 'public/backend/css/', filter: 'isFile'},
 
-                    // Get the fonts
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/fonts/*'], dest: 'public/backend/css/fonts/', filter: 'isFile'},
+                    // JS
+                    {expand: true, flatten:true, src: [''+sparkPlugDir+'/js/*.js'], dest: 'public/backend/js/', filter: 'isFile'},
 
-                    // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/css/skins/_all-skins.min.css'], dest: 'public/backend/css/skins/', filter: 'isFile'},
 
-                    // Includes files within path and flattens results to a single level
+                    // Copy the fonts
+                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/fonts/*'], dest: 'public/backend/fonts/', filter: 'isFile'},
+
+                    // Copy the images
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/img/*'], dest: 'public/backend/img/', filter: 'isFile'},
 
-                    // Includes files within path and flattens results to a single level
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/app.min.js'], dest: 'public/backend/js/', filter: 'isFile'},
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/dist/js/demo.js'], dest: 'public/backend/js/', filter: 'isFile'},
-                    {expand: true, flatten:true, src: [''+completeThemeDir+'/bootstrap/js/*.min.js'], dest: 'public/backend/js/', filter: 'isFile'},
+                    // Copy angular components
+                    {expand: true, flatten:true, src: [''+defaultBowerDir+'/angular/*.min.js'], dest: 'public/backend/angular/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+defaultBowerDir+'/angular-ui-grid/*.min.*'], dest: 'public/backend/angular/angular-ui-grid/', filter: 'isFile'},
+                    {expand: true, flatten:true, src: [''+defaultBowerDir+'/angular-touch/*.min.*'], dest: 'public/backend/angular/angular-touch/', filter: 'isFile'},
 
                     // Extra plugins
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/jQuery/*.min.js'], dest: 'public/backend/plugins/jQuery/', filter: 'isFile'},
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/chartjs/*.min.js'], dest: 'public/backend/plugins/chartjs/', filter: 'isFile'},
-                    <!-- iCheck -->
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/iCheck/*.min.js'], dest: 'public/backend/plugins/iCheck/', filter: 'isFile'},
                     {expand: true, flatten:true, src: [''+completeThemeDir+'/plugins/iCheck/square/blue*'], dest: 'public/backend/css/plugins/iCheck/square/', filter: 'isFile'},
 
@@ -105,7 +105,26 @@ module.exports = function(grunt) {
         },
         watch: {
             files: ["resources/assets/bower/AdminLTE/build/less/*.less", "resources/assets/bower/AdminLTE/build/less/skins/*.less", "resources/assets/bower/AdminLTE/dist/js/app.js"],
-            tasks: ["less","copy"]
+            tasks: ["less","concat","copy"]
+        },
+        concat: {
+            css: {
+                src: [
+                    ''+completeThemeDir+'/bootstrap/css/*.min.css',
+                    ''+completeThemeDir+'/dist/css/*.min.css',
+                    ''+completeThemeDir+'/dist/css/skins/_all-skins.min.css'
+                ],
+                dest: sparkPlugDir+'css/production.css',
+                nonull: true
+            },
+            js: {
+                src: [
+                    ''+completeThemeDir+'/dist/js/app.min.js',
+                    ''+completeThemeDir+'/bootstrap/js/*.min.js'
+                ],
+                dest: sparkPlugDir+'js/production.js',
+                nonull: true
+            }
         }
     });
 
@@ -113,6 +132,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     // Task definition
     grunt.registerTask('default', ["less"]);

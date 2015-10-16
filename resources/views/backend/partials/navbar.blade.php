@@ -110,19 +110,6 @@
             </li>
             @endCan
 
-
-            <!-- User Account Menu
-            <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ gravatar_url(Auth::user()->email) }}" class="user-image" alt="User Image"/>
-                    <span class="hidden-xs">{{ Auth::user()->name }} <span class="caret"></span></span>
-                </a>
-                <ul class="dropdown-menu" style="margin-top: 3px;margin-right: -2px;">
-                    <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Signout</a></li>
-                </ul>
-            </li>-->
-
-
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -134,11 +121,10 @@
                     <li class="user-header">
                         <img src="{{ gravatar_url(Auth::user()->email) }}" class="img-polroid" alt="User Image">
                         <p>
-                            {{ Auth::user()->name }} - &lt; roleName &gt;
-                            <small>Member since &lt; created_at_timestamp &gt;</small>
+                            {{ Auth::user()->name }} - {{ ucfirst(Auth::user()->roles[0]['name']) }}
                         </p>
                     </li>
-                    <!-- Menu Body -->
+                    <!-- Menu Body
                     <li class="user-body">
                         <div class="col-xs-4 text-center">
                             <a href="#">Users</a>
@@ -149,7 +135,7 @@
                         <div class="col-xs-4 text-center">
                             <a href="#">Settings</a>
                         </div>
-                    </li>
+                    </li> -->
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">
@@ -161,9 +147,6 @@
                     </li>
                 </ul>
             </li>
-
-
-
             <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-wrench"></i></a>
             </li>

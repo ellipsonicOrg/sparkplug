@@ -14,14 +14,12 @@ Route::get('/superadmin/home', 'SuperadminController@index');
 
 Route::get('/superadmin/ecosystem', 'SuperadminController@ecosystem');
 
+Route::get('/superadmin/ecosystem/getUserRoleData', 'SuperadminController@getUserRoleData');
 
 // Admin routes
 
 Route::get('/admin/home', 'AdminController@index');
 
-Route::get('/users', 'UsersController@index');
-
-Route::get('/users/getSavedUsers', 'UsersController@listUsers');
 
 
 // Authentication routes
