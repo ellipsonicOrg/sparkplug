@@ -1,11 +1,13 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers\Roles;
 
 use Gate;
 use App\User;
 use App\Role;
 use App\Permission;
 use App\RoleUser;
-use Illuminate\Support\Facades\File;
+use App\Http\Controllers\Controller;
 
 class SuperadminController extends Controller {
 

@@ -10,16 +10,15 @@ Route::get('/home', 'WelcomeController@home');
 
 // Superadmin routes
 
-Route::get('/superadmin/home', 'SuperadminController@index');
+Route::get('/superadmin/home', 'Roles\SuperadminController@index');
 
-Route::get('/superadmin/ecosystem', 'SuperadminController@ecosystem');
+Route::get('/superadmin/ecosystem', 'Roles\SuperadminController@ecosystem');
 
-Route::get('/superadmin/ecosystem/getUserRoleData', 'SuperadminController@getUserRoleData');
+Route::get('/superadmin/ecosystem/getUserRoleData', 'Roles\SuperadminController@getUserRoleData');
 
 // Admin routes
 
-Route::get('/admin/home', 'AdminController@index');
-
+Route::get('/admin/home', 'Roles\AdminController@index');
 
 
 // Authentication routes

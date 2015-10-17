@@ -23,7 +23,14 @@
     color: #FFF;
 }
 
+.nav-tabs-custom {
+    background: transparent;
+}
 
 #ecoSystemGrid {
-    height: 430px;
+    height: 460px;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #222d32;
 }

@@ -1,6 +1,9 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers\Roles;
 
 use Gate;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller {
 
