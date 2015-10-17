@@ -13,7 +13,7 @@ class AdminController extends Controller {
      */
 	public function __construct()
 	{
-		if(Gate::denies('access_admin_panel')) {
+		if(Gate::denies('access_sparkplug_backend')) {
 
             abort('403','User has no privilages to access dashboard');
 

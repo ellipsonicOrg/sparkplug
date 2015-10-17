@@ -17,7 +17,8 @@ class SuperadminController extends Controller {
      */
 	public function __construct()
 	{
-		if(Gate::denies('access_superadmin_panel')) {
+		if(Gate::denies('access_sparkplug_backend'))
+        {
 
             abort('403','User has no privilages to access dashboard');
 
@@ -43,12 +44,8 @@ class SuperadminController extends Controller {
 	 */
 	public function ecosystem()
     {
-        $data['page_header'] = "Ecosystem";
-        $data['page_description'] = "Users, Roles, Permissions and Module management";
-        $data['total_users'] = User::count();
-        $data['total_roles'] = Role::count();
-        $data['total_permissions'] = Permission::count();
-        $data['total_mappings'] = RoleUser::count();
+        $data['page_header']        = "Sparkplug core";
+        $data['page_description']   = "Core backend";
         return view('backend.superadmin.pages.ecosystem', $data);
     }
 
