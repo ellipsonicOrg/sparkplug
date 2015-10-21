@@ -31,19 +31,19 @@
   //Create the new tab
   var tab_pane = $("<div />", {
     "id": "control-sidebar-theme-demo-options-tab",
-    "class": "tab-pane active"
+    "class": "tab-pane"
   });
 
   //Create the tab button
-  var tab_button = $("<li />", {"class": "active"})
+  var tab_button = $("<li />", {"class": ""})
           .html("<a href='#control-sidebar-theme-demo-options-tab' data-toggle='tab'>"
                   + "<i class='fa fa-paint-brush'></i>"
                   + "</a>");
 
   //Add the tab button to the right sidebar tabs
-  $("[href='#control-sidebar-home-tab']")
+  $("[href='#control-sidebar-cog-tab']")
           .parent()
-          .before(tab_button);
+          .after(tab_button);
 
   //Create the menu
   var demo_settings = $("<div />");
@@ -154,7 +154,7 @@
   demo_settings.append(skins_list);
 
   tab_pane.append(demo_settings);
-  $("#control-sidebar-home-tab").after(tab_pane);
+  $("#control-sidebar-cog-tab").after(tab_pane);
 
   setup();
 
@@ -282,3 +282,13 @@
 
   }
 })(jQuery, $.AdminLTE);
+
+
+// Set the active <li > sidebar element, based on the current URL
+$( document ).ready(function() {
+   $("ul.sidebar-menu li a").each(function() {
+        if($(this).attr("href") == window.location.href) {
+            $(this).parent("li").addClass("active");
+        }
+    });
+});

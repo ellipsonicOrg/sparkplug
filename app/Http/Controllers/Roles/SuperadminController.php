@@ -17,12 +17,7 @@ class SuperadminController extends Controller {
      */
 	public function __construct()
 	{
-		if(Gate::denies('access_sparkplug_backend'))
-        {
-
-            abort('403','User has no privilages to access dashboard');
-
-		}
+		//Anything you need
 	}
 
 	/**
@@ -32,21 +27,10 @@ class SuperadminController extends Controller {
 	 */
 	public function index()
 	{
+		// Extend it the way you need here...
         $data['page_header'] 		= "Activity";
         $data['page_description'] 	= "Graphs, charts and logs of your organization";
 		return view('backend.superadmin.pages.dashboard',$data);
 	}
-
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function ecosystem()
-    {
-        $data['page_header']        = "Sparkplug core";
-        $data['page_description']   = "Core backend";
-        return view('backend.superadmin.pages.ecosystem', $data);
-    }
 
 }

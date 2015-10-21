@@ -1,5 +1,9 @@
 /* Any custom styles go here */
 
+.content-wrapper {
+    background: #f6f6f6;
+}
+
 .login-page, .register-page {
     background: #222d32;
 }

@@ -3,16 +3,19 @@
 
 namespace app\Http\ViewComposers;
 
+use App\Module;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\URL;
 
 class SidebarComposer
 {
 
-    public function __construct(Gate $gate){
+    public function __construct(Gate $gate, Module $moduleModel){
 
         $this->gate     = $gate;
         $this->modules  = [];
+        $this->moduleModel = $moduleModel;
     }
 
 
@@ -22,13 +25,20 @@ class SidebarComposer
     public function compose(View $view)
     {
 
-        // Loop the gate variables and get the accessible module names and links
-        if($this->gate->allows('access_sparkplug_backend'))
-        {
-            $this->modules = "<li><a href=\"/superadmin/ecosystem\"><i class='fa fa-globe'></i><span>Sparkplug core</span></a></li>";
+        $availableModules = $this->moduleModel->listAvailableModules();
+        foreach($availableModules as $availableModule) {
+
+            $name = $availableModule->name;
+
+            if($this->gate->allows($name))
+            {
+                $this->modules = "<li><a href='".URL::route($availableModule->route)."'><i class='".$availableModule->icon."'></i><span>$availableModule->label</span></a></li>";
+            }
+
+            $view->with('modules',$this->modules);
         }
 
-        $view->with('modules',$this->modules);
+
 
     }
 

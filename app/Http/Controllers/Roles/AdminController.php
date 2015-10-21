@@ -13,11 +13,7 @@ class AdminController extends Controller {
      */
 	public function __construct()
 	{
-		if(Gate::denies('access_sparkplug_backend')) {
-
-            abort('403','User has no privilages to access dashboard');
-
-		}
+		//Anything you need
 	}
 
 	/**
@@ -27,9 +23,9 @@ class AdminController extends Controller {
 	 */
 	public function index()
 	{
+		// Extend it the way you need here...
         $data['page_header'] = "Activity";
         $data['page_description'] = "Graphs, charts and logs of your organization";
-
 		return view('backend.admin.pages.dashboard',$data);
 	}
 

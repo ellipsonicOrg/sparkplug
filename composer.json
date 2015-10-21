@@ -21,7 +21,7 @@
             "database"
         ],
         "files": [
-            "app/Helpers/image_helpers.php"
+            "app/Helpers/sparkplug_helpers.php"
         ],
         "psr-4": {
             "App\\": "app/"
