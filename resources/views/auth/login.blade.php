@@ -4,7 +4,7 @@
 
         <div class="login-box">
             <div class="login-logo">
-                <a href="/">{{ $product_name }}</a>
+                <a href="/"><b>{{ $product_name }}</b></a>
             </div><!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Sign in to start your session</p>
@@ -50,7 +50,7 @@
                             <a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> Sign in using Linkedin</a>
                         <?php } ?>
 
-                        <?php if (env('GOOGLE_PLUS_LOGIN')) { ?>
+                        <?php if (env('GPLUS_LOGIN')) { ?>
                             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
                         <?php } ?>
 

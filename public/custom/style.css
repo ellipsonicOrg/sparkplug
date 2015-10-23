@@ -38,3 +38,11 @@
 .nav-tabs-custom>.nav-tabs>li.active {
     border-top-color: #222d32;
 }
+
+.modal-large .modal-lg {
+    background: #FFFFFF;
+}
+
+.modal-large .modal-content {
+    padding: 15px;
+}

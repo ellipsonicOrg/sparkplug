@@ -33,6 +33,10 @@ class SidebarComposer
             if($this->gate->allows($name))
             {
                 $this->modules = "<li><a href='".URL::route($availableModule->route)."'><i class='".$availableModule->icon."'></i><span>$availableModule->label</span></a></li>";
+
+            } else {
+
+                $this->modules = null;
             }
 
             $view->with('modules',$this->modules);

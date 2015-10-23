@@ -39,7 +39,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    protected function getPermissions()
+    protected function getPermissionWithRole()
     {
         return Permission::with('roles')->get();
     }
@@ -58,7 +58,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function registerGatePermissions(GateContract $gate)
     {
-        foreach ($this->getPermissions() as $permission) {
+        foreach ($this->getPermissionWithRole() as $permission) {
 
             $this->getPermittedModules($gate, $permission);
 
